@@ -1,48 +1,54 @@
 # Study Timer
 
-一个 Windows 桌面学习计时器。
+A Windows desktop study timer with idle auto-pause.
 
-## 功能
+## Download
 
-- 开机登录后自动启动。
-- 键盘或鼠标有活动时自动计入学习时间。
-- 电脑空闲超过 5 分钟后自动暂停。
-- 点右上角关闭按钮时隐藏到系统托盘，后台继续计时。
-- 双击托盘图标可重新显示窗口。
-- 点击 `Finish` 才会真正结束本次计时并写入日志。
+Download the portable package here:
 
-## 安装
+[StudyTimer-portable.zip](dist/StudyTimer-portable.zip)
 
-1. 解压 `StudyTimer-portable.zip`。
-2. 双击 `Install-StudyTimer.cmd`。
-3. 安装后会创建桌面快捷方式和开机启动项。
+## Features
 
-默认安装位置：
+- Starts automatically after Windows login.
+- Counts study time when keyboard or mouse activity is detected.
+- Auto-pauses after 5 minutes of computer idle time.
+- Clicking the window close button hides the app to the system tray; timing continues in the background.
+- Double-click the tray icon to show the timer again.
+- Click `Finish` to end the current timing session and write a log entry.
+
+## Install
+
+1. Download and unzip `StudyTimer-portable.zip`.
+2. Double-click `Install-StudyTimer.cmd`.
+3. The installer creates a desktop shortcut and a Windows startup shortcut.
+
+Default install location:
 
 ```text
 %LOCALAPPDATA%\StudyTimer
 ```
 
-## 卸载
+## Uninstall
 
-双击 `Uninstall-StudyTimer.cmd`。
+Double-click `Uninstall-StudyTimer.cmd`.
 
-## 日志
+## Logs
 
-学习记录会保存到安装目录里的：
+Study records are saved in the install directory:
 
 ```text
 StudyTimer_log.csv
 ```
 
-## 文件说明
+## Files
 
-- `StudyTimer.ps1`：主程序。
-- `StartStudyTimerHidden.vbs`：隐藏 PowerShell 黑窗口的启动器。
-- `assets/`：界面图片和图标资源。
-- `Install-StudyTimer.ps1` / `.cmd`：安装脚本。
-- `Uninstall-StudyTimer.ps1` / `.cmd`：卸载脚本。
+- `StudyTimer.ps1`: main app.
+- `StartStudyTimerHidden.vbs`: hidden launcher that avoids a PowerShell console window.
+- `assets/`: UI images and icon resources.
+- `Install-StudyTimer.ps1` / `.cmd`: installer.
+- `Uninstall-StudyTimer.ps1` / `.cmd`: uninstaller.
 
-## 注意
+## Notice
 
-图片资源来自用户提供的素材。公开发布或商业传播前，请先确认图片版权和授权。
+Image assets were supplied by the user. Before public or commercial redistribution, confirm that the images are licensed for that use.
