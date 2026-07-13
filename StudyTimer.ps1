@@ -40,6 +40,7 @@ public static class StudyIdle
 "@
 
 $script:IdleThreshold = [TimeSpan]::FromMinutes(5)
+$script:MaxTickInterval = [TimeSpan]::FromSeconds(10)
 $script:StudyTime = [TimeSpan]::Zero
 $script:LastTick = Get-Date
 $script:ManualPaused = $false
@@ -287,7 +288,8 @@ $timer.Add_Tick({
     $script:LastTick = $now
 
     $idle = [StudyIdle]::GetIdleTime()
-    if (-not $script:ManualPaused -and $idle -lt $script:IdleThreshold) {
+    $isNormalTick = $elapsed -gt [TimeSpan]::Zero -and $elapsed -le $script:MaxTickInterval
+    if ($isNormalTick -and -not $script:ManualPaused -and $idle -lt $script:IdleThreshold) {
         $script:StudyTime = $script:StudyTime.Add($elapsed)
     }
 
